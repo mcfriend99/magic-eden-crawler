@@ -130,7 +130,7 @@ const transfer = async (mintAddress, walletAddress) => {
 } */
 
 Object.defineProperty(Array.prototype, 'getOrNull', {
-  value: function(index) { return this.length < index && index > -1 ? this[index] : null }
+  value: function(index) { return this.length > index && index > -1 ? this[index] : null }
 });
 
 (async () => {
