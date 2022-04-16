@@ -146,7 +146,7 @@ Object.defineProperty(Array.prototype, 'getOrNull', {
       if(r.length > 0) {
         const nft = await getNFT(r[0]?.tokenMint)
         // console.log(nft)
-        const collection = nft?.off_chain_data?.name?.split('#').getOrNull(0) || nft?.off_chain_data?.name?.split('-').getOrNull(1)?.trim() || nft?.off_chain_data?.collection?.name || nft?.off_chain_data?.symbol
+        const collection = nft?.off_chain_data?.name?.split('#').getOrNull(0)?.trim() || nft?.off_chain_data?.name?.split('-').getOrNull(1)?.trim() || nft?.off_chain_data?.collection?.name || nft?.off_chain_data?.symbol
         fs.appendFileSync('output.txt', `"${collection}": "${col}",\n`)
 
         console.log(`Registered ${collection} as ${col}`)
