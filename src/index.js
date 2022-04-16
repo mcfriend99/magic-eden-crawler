@@ -144,7 +144,8 @@ Object.defineProperty(String.prototype, 'trimBegin', {
 });
 
 const getMagicCollectionName = (content) => {
-  let result = ""
+  let result = ''
+
   let name = content?.collection?.name
   if(collections[name]) {
     result = collections[name]
@@ -165,8 +166,8 @@ const getMagicCollectionName = (content) => {
     }
   }
 
-  console.log(`Name returned ${result}`)
-  return result
+  console.log(`Name returned '${result}'`)
+  return result.replace(/"/, '\"')
 }
 
 (async () => {
