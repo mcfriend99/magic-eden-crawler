@@ -1,37 +1,3 @@
 /* module.exports = ["danuki_dojo", "framed_boys_genesis", "_honorary_galactic_chimps_gcc", "metahousesnft", "pirate_punks", "pixsol_bears", "pocket_ninjas", "rise_of_the_solapes", "solana_mystery_box", "tribal_dao", "tribal_gangg"] */
 
-module.exports = [
-  "babyyodanft",
-  "billionaire_bats_club",
-  "camo_crocs",
-  "crypto_coven",
-  "cult_of_meerkats",
-  "cyber_cow_society",
-  "cyberkatz",
-  "dag_common_collection",
-  "decentralized_autonomous_gigaunits_dag",
-  "dapper_ducks",
-  "dead_presidents_in_fiat_we_trust",
-  "draginz",
-  "floof_wl_cards",
-  "idle_planets_autumn_2021_moon",
-  "idle_planets_nft_holiday_2021_moon",
-  "kobalad",
-  "krypto_kronikz",
-  "lafamiglia",
-  "lazy_heroes",
-  "lilboogle",
-  "lmns",
-  "metadroids",
-  "metahousesnft",
-  "atadians",
-  "pixsol_bears",
-  "saber_tigerz",
-  "saltycrocsclub",
-  "secret_skeleton_society",
-  "seoul_stars",
-  "snowed",
-  "trapped_souls",
-  "tribal_dao",
-  "tribal_gangg"
-]
+module.exports = ["pixsol_bears","metahousesnft","tribal_dao","tribal_gangg"]
