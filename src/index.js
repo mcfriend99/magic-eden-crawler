@@ -143,33 +143,6 @@ Object.defineProperty(String.prototype, 'trimBegin', {
   }
 });
 
-const getMagicCollectionName = (content) => {
-  let result = ''
-
-  let name = content?.collection?.name
-  if(collections[name]) {
-    result = collections[name]
-  } else {
-    name = content?.name?.trimBegin('#').split('#').getOrNull(0)?.trim()
-    if(collections[name]) {
-      result = collections[name]
-    } else {
-      name = content?.name?.split('-').getOrNull(1)?.trim() 
-      if(collections[name]) {
-        result = collections[name]
-      } else {
-        name = content?.symbol
-        if(collections[name]) {
-          result = collections[name]
-        }
-      }
-    }
-  }
-
-  console.log(`Name returned '${result}'`)
-  return result.replace(/"/, '\"')
-}
-
 (async () => {
 
   if(!fs.existsSync('output.txt'))
@@ -183,7 +156,7 @@ const getMagicCollectionName = (content) => {
       if(r.length > 0) {
         const nft = await getNFT(r[0]?.tokenMint)
         // console.log(nft)
-        const collection = getMagicCollectionName(nft?.off_chain_data)
+        const collection = nft?.off_chain_data?.collection?.name || nft?.off_chain_data?.name?.trimBegin('#').split('#').getOrNull(0)?.trim() || nft?.off_chain_data?.name?.split('-').getOrNull(1)?.trim() || nft?.off_chain_data?.symbol
         fs.appendFileSync('output.txt', `"${collection}": "${col}",\n`)
 
         console.log(`Registered ${collection} as ${col}`)
