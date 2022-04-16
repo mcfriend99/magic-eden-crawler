@@ -133,6 +133,16 @@ Object.defineProperty(Array.prototype, 'getOrNull', {
   value: function(index) { return this.length > index && index > -1 ? this[index] : null }
 });
 
+Object.defineProperty(String.prototype, 'trimBegin', {
+  value: function(char) {
+    let v = this 
+    while(v.startsWith(char)) {
+      v = v.substring(1)
+    }
+    return v
+  }
+});
+
 (async () => {
 
   if(!fs.existsSync('output.txt'))
@@ -146,7 +156,7 @@ Object.defineProperty(Array.prototype, 'getOrNull', {
       if(r.length > 0) {
         const nft = await getNFT(r[0]?.tokenMint)
         // console.log(nft)
-        const collection = nft?.off_chain_data?.name?.split('#').getOrNull(0)?.trim() || nft?.off_chain_data?.name?.split('-').getOrNull(1)?.trim() || nft?.off_chain_data?.collection?.name || nft?.off_chain_data?.symbol
+        const collection = nft?.off_chain_data?.name?.trimBegin('#').split('#').getOrNull(0)?.trim() || nft?.off_chain_data?.name?.split('-').getOrNull(1)?.trim() || nft?.off_chain_data?.collection?.name || nft?.off_chain_data?.symbol
         fs.appendFileSync('output.txt', `"${collection}": "${col}",\n`)
 
         console.log(`Registered ${collection} as ${col}`)
